@@ -105,7 +105,7 @@ label input[type="number"]{
   clear: both;
 }
 
-.btn {
+button {
   border: none;
   background: linear-gradient(rgb(158, 0, 0), rgb(255, 0, 0));
   border-radius: 25px;
@@ -130,7 +130,7 @@ button[disabled] {
   float: right;
 }
 
-#password {
+#Password {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
