@@ -1,38 +1,51 @@
-// Assignment Code
+//Assignment Code 
+var generateBtn = document.querySelector("#generate");
 
-var password_el = document.querySelector('#Password');
-var length_el = document.querySelector('#Length');
-var uppercase_el = document.querySelector('#Uppercase');
-var lowercase_el = document.querySelector('#Lowercase');
-var numbers_el = document.querySelector('#Numbers');
-var symbols_el = document.querySelector('#Symbols');
+// This function gets the password
+function getPassword() {
 
-var generate_btn = document.querySelector('#generate');
+  // Password variables.
+  var randomKey = ""
+  var numbers = "0123456789"
+  var symbols = "!@#$%^&*()_+"
+  var lowercase = "abcdefghijklmnopqrstuvwxyz"
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var multiSelect = "";
 
-var uppercase_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowercase_chars = "abcdefghijklmnopqrstuvwxyz";
-var numbers_chars = "0123456789";
-var symbols_chars = "!@#$%^&*()";
+  // First prompt that is presented that lets the user select how long they want the password to be.
+  var keyLength = prompt("Your password should be between 8 to 128 characters long, enter a number.");
 
-// Write password to the #password input
-function GeneratePassword () {
-  let password = "";
-  let length = length_el.value;
-  let chars = "";
+  if (keyLength < 8 || keyLength > 128 || isNaN(keyLength)) {
+    alert("Your password doesnt meet the criteria presented. Password has to be between 8 ans 128, please enter another number.");
+    return;
+  } else {
+    var lowerEl = confirm("Your password will have lowercase letters, click ok to continue");
+    var upperEl = confirm("Your password will have uppercase letters, click ok to continue");
+    var symbolsEl = confirm("Your password will have symbols, click ok to continue");
+    var numbersEl = confirm("Your password will have numbers, click ok to continue");
+  }
 
-  chars += uppercase_el.checked ? uppercase_chars : "";
-  chars += lowercase_el.checked ? lowercase_chars : "";
-  chars += numbers_el.checked ? numbers_chars : "";
-  chars += symbols_el.checked ? symbols_chars : "";
+  if (lowerEl) { multiSelect += lowercase; }
+  if (upperEl) { multiSelect += uppercase; }
+  if (numbersEl) { multiSelect += numbers; }
+  if (symbolsEl) { multiSelect += symbols; }
 
-  for (let i = 0; i <= length; i++) {
-      let rand = Math.floor(Math.random() * chars.length);
-      password += chars.substring(rand, rand + 1);
+  for (i = 0; i < keyLength; i++) {
+    randomKey += multiSelect[Math.floor(Math.random() * multiSelect.length)]
+  }
+  return (randomKey);
 }
 
-password_el.value = password;
+// Write password to the #password input
+function writePassword(randomKey) {
+  var passwordText = document.querySelector("#password");
+  passwordText.value = randomKey;
 
+  if (passwordText.length === 0) {
+    return;
+  }
 }
 
 // Add event listener to generate button
-generate_btn.addEventListener("click", GeneratePassword);
+generateBtn.addEventListener("click", function () { writePassword(getPassword()) });
+
