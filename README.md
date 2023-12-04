@@ -20,7 +20,7 @@ This week we were given starter code that included the HTML and CSS files but ne
 
 * Finally, once i felt like the password generator met all the criteria, i pushed it to GitHub.
 
-> **Efren's Portfolio Link**: 
+> **Password Generator Link**: 
 
 ### Screenshot
 <img src="./Images/">
