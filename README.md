@@ -20,7 +20,7 @@ This week we were given starter code that included the HTML and CSS files but ne
 
 * Finally, once i felt like the password generator met all the criteria, i pushed it to GitHub.
 
-> **Password Generator Link**: 
+> **Password Generator Link**: https://efren96.github.io/password-generator-accessibility-update/
 
 ### Screenshot
-<img src="./Images/">
+<img src="./Assets/Password Generator Screenshot.png">
